@@ -2,6 +2,16 @@
 
 execute pathogen#infect()
 
+" Vundle settings
+" -----------------
+set rtp+=~/.vim/bundle/Vundle.vim
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+call vundle#begin('~/.vim/bundle')
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin  'Valloric/YouCompleteMe'
+call vundle#end() 
+
 "FONTS AND COLORS
 set encoding=utf-8
 set number
@@ -60,4 +70,5 @@ let NERDTreeDirArrows = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme='solarized'
+
 
