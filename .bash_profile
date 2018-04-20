@@ -5,7 +5,7 @@
 
 ## shortcuts
 
-### files, moving around
+### files, moving around, exec stuff
 alias lsl='ls -lah'
 alias l='ls '
 alias la='ls -A'
@@ -16,6 +16,7 @@ alias vi='vim'
 alias editvim='vim ~/.vimrc'
 alias editbash='vim ~/.bash_profile'
 alias quit='exit'
+alias music='cmus --show-cursor'
 
 export PATH=$HOME/bin:$PATH
 
