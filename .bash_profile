@@ -11,16 +11,18 @@ alias l='ls '
 alias la='ls -A'
 alias cls='clear'
 alias clsl='clear ;  ls -la'
-alias search='grep'
-alias vi='vim'
+alias search='grep --color'
+alias grep="grep --color"
+alias vi="vim"
 alias editvim='vim ~/.vimrc'
 alias editbash='vim ~/.bash_profile'
 alias quit='exit'
-alias music='cmus --show-cursor'
+alias restart="shutdown -r"
 
 export PATH=$HOME/bin:$PATH
 
-alias pushprefs='cp -uv ~/.bash_profile ~/.vimrc ~/.gitignore_global -t ~/prefs'
+PREFS="~/.bash_profile ~/.vimrc ~/.gitignore_global ~/.git_message ~/.gitconfig" 
+alias pushprefs="touch -c $PREFS | cp -v $PREFS -t ~/prefs"
 
 ### apt
 alias update='sudo apt-get update && sudo apt-get dist-upgrade && sudo apt autoremove ; echo -e "Update$DONE"'

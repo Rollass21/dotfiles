@@ -9,7 +9,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 call vundle#begin('~/.vim/bundle')
     Plugin 'VundleVim/Vundle.vim'
-    Plugin  'Valloric/YouCompleteMe'
+    Plugin 'Valloric/YouCompleteMe'
 call vundle#end() 
 
 "FONTS AND COLORS
@@ -74,3 +74,6 @@ let g:airline_theme='solarized'
 "YouCompleteMe settings
 let g:ycm_key_list_select_completion = ['<TAB>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_autoclose_preview_window_after_completion = 1
