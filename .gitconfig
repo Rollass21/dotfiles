@@ -1,0 +1,59 @@
+[core]
+	editor = vim
+[commit]
+    template = ~/.git_message
+[user]
+	name = Roland Schulz
+	email = schullzroll@gmail.com 
+    username = RollAss21
+[core]
+	editor = vim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = schullzroll@gmail.com
+	smtpserverport = 587
+    from = schullzroll@gmail.com
+	confirm = auto
+[web]
+	browser = opera
+[push]
+	default = matching
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+[diff]
+	tool = vimdiff
+[alias]
+    br = branch
+    ch = checkout
+    # Pop your last commit out of the history! No change lost, just unindexed
+    pop = reset HEAD^
+    l = log
+    a = add -A
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cmsg = commit -m
+    camsg= commit -a -m
+    d = diff
+    s = status
+    co = checkout
+    cob = checkout -b
+    # list aliases
+    aliases = "!git config -l | grep alias | cut -c 7-"

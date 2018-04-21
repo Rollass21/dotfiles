@@ -22,7 +22,7 @@ alias restart="shutdown -r"
 export PATH=$HOME/bin:$PATH
 
 PREFS="~/.bash_profile ~/.vimrc ~/.gitignore_global ~/.git_message ~/.gitconfig" 
-alias pushprefs="touch -c $PREFS | cp -v $PREFS -t ~/prefs"
+alias pushprefs="cp -uv $PREFS -t ~/prefs"
 
 ### apt
 alias update='sudo apt-get update && sudo apt-get dist-upgrade && sudo apt autoremove ; echo -e "Update$DONE"'
