@@ -1,5 +1,3 @@
-[core]
-	editor = vim
 [commit]
     template = ~/.git_message
 [user]
