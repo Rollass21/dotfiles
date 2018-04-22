@@ -5,11 +5,13 @@ execute pathogen#infect()
 " Vundle settings
 " -----------------
 set rtp+=~/.vim/bundle/Vundle.vim
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 call vundle#begin('~/.vim/bundle')
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'Valloric/YouCompleteMe'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'tpope/vim-fugitive'
 call vundle#end() 
 
 "FONTS AND COLORS
@@ -18,6 +20,16 @@ set number
 syntax on
 set background=dark
 colorscheme solarized
+
+"columns
+augroup ColorcolumnOnlyInInsertMode
+  autocmd!
+  autocmd InsertLeave * setlocal cc=0
+  autocmd InsertEnter * setlocal cc=80,120
+augroup END
+highlight OverLength ctermfg=darkred 
+match OverLength /\%>120v.\+/
+
 
 "SOME USEFUL STUFF
 set nocompatible
@@ -32,7 +44,6 @@ set noerrorbells
 set mouse=a
 set autoindent
 set smartindent
-set cindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -49,7 +60,6 @@ map <C-b> :bnext<CR>
 inoremap jj <ESC>
 
 
-"Syntastic settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:synstastic_auto_jump = 1
@@ -77,3 +87,10 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>']
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+"Fugitive settings
+nnoremap gst :Gstatus<CR>
+nnoremap gca :Gcommit<CR>
+
+
