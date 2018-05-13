@@ -4,29 +4,32 @@
 #-----------------
 
 ## shortcuts
+EDITOR='vim'
 
 ### files, moving around, exec stuff
 alias lsl='ls -lah'
 alias l='ls '
 alias la='ls -A'
 alias cls='clear'
-alias clsl='clear ;  ls -la'
+alias clsl="clear ; la"
 alias search='grep --color'
 alias grep="grep --color"
 alias vi="vim"
-alias editvim='vim ~/.vimrc'
-alias editbash='vim ~/.bash_profile'
+alias editvim="$EDITOR ~/.vimrc"
+alias editbash="$EDITOR ~/.bash_profile"
+alias editgit="$EDITOR ~/.gitconfig"
 alias quit='exit'
 alias restart="shutdown -r"
+ncores="$(grep '^processor' /proc/cpuinfo | wc -l)"
+alias mk="make -j$ncores"
+alias mkc="mk check && mk syntax-check"
 
 export PATH=$HOME/bin:$PATH
 
 PREFS="~/.bash_profile ~/.vimrc ~/.gitignore_global ~/.git_message ~/.gitconfig" 
-alias pushprefs="cp -uv $PREFS -t ~/prefs"
+alias pushprefs="cp -v $PREFS -t ~/dotfiles"
 
-### apt
-alias update='sudo apt-get update && sudo apt-get dist-upgrade && sudo apt autoremove ; echo -e "Update$DONE"'
-
+alias update="sudo dnf update -y"
 # CLI settings
 #-----------------
 
@@ -39,7 +42,7 @@ fi
 
 shopt -s globstar
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='---END---\n${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # function to change terminal title

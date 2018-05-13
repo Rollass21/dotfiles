@@ -8,10 +8,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin('~/.vim/bundle')
     Plugin 'VundleVim/Vundle.vim'
-    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'airblade/vim-gitgutter'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'tpope/vim-fugitive'
+    Plugin 'Valloric/YouCompleteMe'
 call vundle#end() 
 
 "FONTS AND COLORS
@@ -35,8 +39,10 @@ match OverLength /\%>120v.\+/
 set nocompatible
 set hidden
 filetype plugin indent on
+set cursorline
 set ruler
 set laststatus=2
+set scrolloff=6
 set showcmd
 set encoding=utf-8
 set visualbell
@@ -56,7 +62,9 @@ nnoremap p gp
 nnoremap P gP
 nnoremap qb :bd<CR>
 nnoremap qB :bd!<CR>
-map <C-b> :bnext<CR>
+nnoremap <F5> :!make<CR>
+map <C-l> :bnext<CR>
+map <C-h> :bprevious<CR>
 inoremap jj <ESC>
 
 
@@ -92,5 +100,6 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 "Fugitive settings
 nnoremap gst :Gstatus<CR>
 nnoremap gca :Gcommit<CR>
+
 
 
