@@ -14,6 +14,7 @@ call vundle#begin('~/.vim/bundle')
     Plugin 'airblade/vim-gitgutter'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'VimIRC.vim'
     Plugin 'tpope/vim-fugitive'
     Plugin 'Valloric/YouCompleteMe'
 call vundle#end() 
@@ -50,6 +51,8 @@ set noerrorbells
 set mouse=a
 set autoindent
 set smartindent
+set cindent
+set cinoptions=(0,:0,l1,t0,L3
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -71,7 +74,8 @@ inoremap jj <ESC>
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:synstastic_auto_jump = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "X"
 let g:syntastic_warning_symbol = "!"
@@ -96,10 +100,13 @@ let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_confirm_extra_conf = 0
 
 "Fugitive settings
 nnoremap gst :Gstatus<CR>
 nnoremap gca :Gcommit<CR>
 
-
+"Ctags settings
+set tags=./tags;
 
