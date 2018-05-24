@@ -37,22 +37,27 @@
 [diff]
 	tool = vimdiff
 [alias]
+    b = branch
     br = branch
     ch = checkout
-    # Pop your last commit out of the history! No change lost, just unindexed
-    pop = reset HEAD^
-    l = log
+    uncommit = reset HEAD^
+    l = log --graph --decorate 
     a = add -A
     ap = add -p
-    c = commit --verbose
-    ca = commit -a --verbose
-    cmsg = commit -m
-    camsg= commit -a -m
+    c = commit --verbose --signoff
+    ca = commit -a --verbose --signoff
+    cmsg = commit -m --signoff
+    camsg= commit -a -m --signoff
     d = diff
     s = status
+    sh = show
     co = checkout
     cob = checkout -b
+    signlast = commit --amend --signoff
+    #display occurence of searched string in files
+    matches = grep -ciIp #'string'
+    hist = log --graph --oneline --decorate --all
     # list aliases
     aliases = "!git config -l | grep alias | cut -c 7-"
-[credential]
-	helper = cache
+[credential "smtp.gmail.com"]
+	helper = !~/bin/git-smtp-pass
