@@ -3,12 +3,12 @@
 [user]
 	name = Roland Schulz
 	email = schullzroll@gmail.com 
-    username = RollAss21
+    username = schullzroll
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore_global
-	pager = "less -MR "
+	pager = "less "
 [sendemail]
     suppresscc = all
 	smtpencryption = tls
@@ -59,5 +59,3 @@
     hist = log --graph --oneline --decorate --all
     # list aliases
     aliases = "!git config -l | grep alias | cut -c 7-"
-[credential "smtp.gmail.com"]
-	helper = !~/bin/git-smtp-pass
