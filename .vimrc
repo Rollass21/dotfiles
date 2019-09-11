@@ -30,7 +30,7 @@ colorscheme solarized
 augroup ColorcolumnOnlyInInsertMode
   autocmd!
   autocmd InsertLeave * setlocal cc=0
-  autocmd InsertEnter * setlocal cc=80,120
+  autocmd InsertEnter c,cpp,h setlocal cc=85,120
 augroup END
 highlight OverLength ctermfg=darkred 
 match OverLength /\%>120v.\+/
@@ -110,3 +110,17 @@ nnoremap gca :Gcommit<CR>
 "Ctags settings
 set tags=./tags;
 
+"Functions
+
+"For use when tidying long variable declarations at the top of functions
+function! SortLinesDescending() range
+    execute a:firstline . "," . a:lastline . 's/^\(.*\)$/\=strdisplaywidth( submatch(0) ) . " " . submatch(0)/'
+    execute a:firstline . "," . a:lastline . '%sort! n'
+    execute a:firstline . "," . a:lastline . 's/^\d\+\s//'
+endfunction
+
+function! SortLinesAscending() range
+    execute a:firstline . "," . a:lastline . 's/^\(.*\)$/\=strdisplaywidth( submatch(0) ) . " " . submatch(0)/'
+        execute a:firstline . "," . a:lastline . 'sort n'
+    execute a:firstline . "," . a:lastline . 's/^\d\+\s//'
+endfunction
