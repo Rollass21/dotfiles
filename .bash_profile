@@ -23,7 +23,8 @@ parse_git_branch() {
 #-----------------
 
 ## shortcuts
-EDITOR='vim'
+export EDITOR=vim
+export VISUAL="$EDITOR"
 
 ### files, moving around, exec stuff
 alias lsl='ls -lah'
