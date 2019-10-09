@@ -45,6 +45,7 @@ ln -sf $DOTFILES_DIR/.gitconfig ~/.gitconfig
 ln -sf $DOTFILES_DIR/.gitignore_global ~/.gitignore_global
 ln -sf $DOTFILES_DIR/.git_message ~/.git_message
 ln -sf $DOTFILES_DIR/.scripts ~/scripts
+ln -sf $DOTFILES_DIR/.screenlayout ~/.screenlayout
 
 #Summary
 #-------
