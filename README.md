@@ -16,14 +16,20 @@ You can and should modify provided settings variables in (create_symlinks.sh)[./
 You can clone the repository wherever you want, just remember to change the $DOTFILES_DIR in (install.sh)[install.sh], default location being ~/dotfiles.
 
 ```bash
-cd; git clone https://github.com/schullzroll/dotfiles.git && cd dotfiles && bash install.sh
+cd ~ &&
+git clone https://github.com/schullzroll/dotfiles.git &&
+cd dotfiles &&
+git submodule update --init --recursive &&
+bash install.sh
 ```
 
 ### Git-free install
 
+Don't forget to perform a git submodule update on .vim/bundle/Vundle!
 To install these dotfiles without Git:
 
 ```bash
 cd; curl -L https://github.com/schullzroll/dotfiles/tarball/master | tar -xz
 cd <untarred repo> && bash install.sh
 ```
+
