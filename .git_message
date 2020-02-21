@@ -1,13 +1,14 @@
-# [SUBJECT]
-# 50 chars line
-# If applied, this commit will...
+# [SUBJECT] [maxlen 50]  do not go further than ->
 #
-# [DESCRIPTION]
-# 72 chars wrapped
-# Why is this change needed?
+# [DESCRIPTION] [maxlen 72]                    do not go further than ->
 #
-# How does it address the issue?
+# [REFERENCES] [at best 72, allows exceptions] do not go further than ->
 #
-# [REFERENCE]
-# Links to any relevant tickets, articles or other resources
-
+# [SIGNATURE] run "$ git commit --amend --signoff" to sign last commit
+#
+#
+# README ########## ####################################################
+# Write messages compliant with:
+# https://chris.beams.io/posts/git-commit/#seven-rules
+#
+# Remember to leave blank lines inbetween [sections]!

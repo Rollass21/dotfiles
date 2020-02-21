@@ -13,13 +13,43 @@
 TEMP_LOG_FILE=~/dotfiles_log.txt
 
 #Packages to install
+#TODO: Add support for files containing installed packages
 packages=(
-          valgrind
+          blueman
+          bluez-utils
           ctags
           curl
+          dmenu
+          feh
+          ffmpeg
+          firefox
+          gimp
+          htop
+          i3blocks
+          pandoc
+          pcmanfm
+          qemu
+          ranger
+          scrot
+          gdb
           tmux
+          transmission-gtk
+          udiskie
+          valgrind
           vim
+          virt-install
+          virt-manager
+          virt-viewer
+          vlc
+          volumeicon
+          xautolock
+          xorg-xbacklight
+          zathura
+          python-pip
+          clang
          )
+
+#No need to edit below this line ----------------------------------------------
 
 #Vendor Package Manager Install Commands List
 #REMINDER: When editing, also add the corresponding VENDOR_ID to get_vendor()
@@ -45,7 +75,6 @@ get_vendor_id() {
 }
 
 
-#No need to edit below this line ----------------------------------------------
 CURRENT_SCRIPT=$(basename "${BASH_SOURCE[0]}")
 
 #Lookup which package manager is available and use the first one available

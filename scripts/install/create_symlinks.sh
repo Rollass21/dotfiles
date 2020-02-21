@@ -12,45 +12,50 @@
 #Settings
 #--------
 DOTFILES_DEFAULT_DIR=~/dotfiles
-TEMP_LOG_FILE=~/dotfiles_log.txt
 
 #No need to edit below this line ----------------------------------------------
 CURRENT_SCRIPT=$(basename "${BASH_SOURCE[0]}")
 #Sets the default/supplied dotfiles dir
-if [ $# -eq 0 ]; then
+if [ $# -eq 1 ]; then
     DOTFILES_DIR=$1
 else
     DOTFILES_DIR=$DOTFILES_DEFAULT_DIR
 fi
 
+echo "STARTING $CURRENT_SCRIPT"
+echo "========================"
+
 #Delete existing dot files and folders in the home folder
 #NOTE: 2>$1 sends stdout(1) and stderr(2) to /dev/null
 #--------------------------------------------------------
-sudo rm -rf ~/.vim > /dev/null 2>&1
-sudo rm -rf ~/.vimrc > /dev/null 2>&1
-sudo rm -rf ~/.bashrc > /dev/null 2>&1
-sudo rm -rf ~/.tmux > /dev/null 2>&1
-sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
-sudo rm -rf ~/.gitconfig > /dev/null 2>&1
-sudo rm -rf ~/.config > /dev/null 2>&1
+echo
+echo "Deleting old"
+echo "------------"
+rm -r ~/.bashrc > /dev/null 2>&1 && echo "Deleting ~/.bashrc"
+rm -r ~/.vim > /dev/null 2>&1 && echo "Deleting ~/.vim"
+rm -r ~/.vimrc > /dev/null 2>&1 && echo "Deleting ~/.vimrc"
+rm -r ~/.tmux > /dev/null 2>&1 &&  echo "Deleting ~/.tmux"
+rm -r ~/.tmux.conf > /dev/null 2>&1 && echo "Deleting ~/.tmux.conf"
+rm -r ~/.gitconfig > /dev/null 2>&1 && echo "Deleting ~/.gitconfig"
+rm -r ~/.git_message > /dev/null 2>&1 && echo "Deleting ~/.git_message"
+rm -r ~/.gitignore_global > /dev/null 2>&1 && echo "Deleting ~/.gitignore_global"
 
 #Create symlinks in the home folder, remove existing
 #----------------------------------
-ln -sf $DOTFILES_DIR/vim ~/.vim
-ln -sf $DOTFILES_DIR/.vimrc ~/.vimrc
-ln -sf $DOTFILES_DIR/.bash_profile ~/.bash_profile
-ln -sf $DOTFILES_DIR/tmux ~/.tmux
-ln -sf $DOTFILES_DIR/config ~/.config
-ln -sf $DOTFILES_DIR/.gitconfig ~/.gitconfig
-ln -sf $DOTFILES_DIR/.gitignore_global ~/.gitignore_global
-ln -sf $DOTFILES_DIR/.git_message ~/.git_message
-ln -sf $DOTFILES_DIR/.scripts ~/scripts
-ln -sf $DOTFILES_DIR/.screenlayout ~/.screenlayout
-
-#Summary
-#-------
-echo -e "\n------ $CURRENT_SCRIPT Summary ------\n"
-cat $TEMP_LOG_FILE
 echo
-rm $TEMP_LOG_FILE
+echo "Linking new"
+echo "-----------"
+ln -sf $DOTFILES_DIR/.bash_profile ~/.bash_profile && echo "Linking ~/.bash_profile"
+ln -sf $DOTFILES_DIR/.scripts ~/bin/scripts && echo "Linking ~/bin/scripts"
+ln -sf $DOTFILES_DIR/.vim ~/.vim && echo "Linking ~/.vim"
+ln -sf $DOTFILES_DIR/.vim/vimrc ~/.vimrc && echo "Linking ~/.vimrc"
+ln -sf $DOTFILES_DIR/.tmux.conf ~/.tmux.conf && echo "Linking ~/.tmux.conf"
+ln -sf $DOTFILES_DIR/.gitconfig ~/.gitconfig && echo "Linking ~/.gitconfig"
+ln -sf $DOTFILES_DIR/.gitignore_global ~/.gitignore_global && echo "Linking ~/.gitignore_global"
+ln -sf $DOTFILES_DIR/.git_message ~/.git_message && echo "Linking ~/.git_message"
+ln -sf $DOTFILES_DIR/.screenlayout ~/.screenlayout && echo "Linking ~/.screenlayout"
 
+#end
+echo
+echo "$CURRENT_SCRIPT FINISHED"
+echo "========================"

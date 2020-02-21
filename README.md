@@ -4,7 +4,7 @@
 
 **Warning:** If you want to give these dotfiles a try, you should FIRST FORK THIS REPOSITORY, REVIEW THE CODE, AND REMOVE THINGS YOU DON’T WANT OR NEED. Don’t blindly use my settings unless you know what that entails.
 
-Remember that these dotfiles contain my personal git credentials, make sure to replace them with yours (So you dont accidentally commit under my name).
+Remember that these dotfiles may contain my personal git credentials, make sure to replace them with yours (So you dont accidentally commit under my name).
 
 **Use at your own risk!**
 
@@ -25,4 +25,5 @@ To install these dotfiles without Git:
 
 ```bash
 cd; curl -L https://github.com/schullzroll/dotfiles/tarball/master | tar -xz
+cd <untarred repo> && bash install.sh
 ```

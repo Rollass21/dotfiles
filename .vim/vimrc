@@ -1,7 +1,5 @@
 "Rolandkuv Vimrc
 
-execute pathogen#infect()
-
 " Vundle settings
 " -----------------
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,13 +8,11 @@ call vundle#begin('~/.vim/bundle')
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'scrooloose/syntastic'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'altercation/vim-colors-solarized'
     Plugin 'airblade/vim-gitgutter'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'VimIRC.vim'
-    Plugin 'tpope/vim-fugitive'
     Plugin 'Valloric/YouCompleteMe'
+    Plugin 'plantuml-syntax'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'yggdroot/indentline'
 call vundle#end() 
 
 "FONTS AND COLORS
@@ -24,7 +20,7 @@ set encoding=utf-8
 set number
 syntax on
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 "columns
 augroup ColorcolumnOnlyInInsertMode
@@ -43,7 +39,7 @@ filetype plugin indent on
 set cursorline
 set ruler
 set laststatus=2
-set scrolloff=6
+set scrolloff=8
 set showcmd
 set encoding=utf-8
 set visualbell
@@ -52,7 +48,7 @@ set mouse=a
 set autoindent
 set smartindent
 set cindent
-set cinoptions=(0,:0,l1,t0,L3
+set cinoptions=(0,:0,l1,t0,L3)
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -69,11 +65,17 @@ nnoremap <F5> :!make<CR>
 map <C-l> :bnext<CR>
 map <C-h> :bprevious<CR>
 inoremap jj <ESC>
+"Search for visually selected text
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
+"TagBar settings
+let g:tagbar_autofocus=1
+let g:tagbar_case_insensitive = 1
+nmap <C-t> :TagbarToggle<CR>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:synstastic_auto_jump = 1
+let g:syntastic_auto_jump = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 let g:syntastic_check_on_wq = 0
@@ -85,13 +87,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
-let NERDTreeMinimalUI = 1
+let NERDTreeMinimalUI = 0
 let NERDTreeDirArrows = 1
-
-"Airline settings
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='solarized'
+let NERDTreeShowHidden=1
 
 "YouCompleteMe settings
 let g:ycm_key_list_select_completion = ['<TAB>']
@@ -103,15 +101,10 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_confirm_extra_conf = 0
 
-"Fugitive settings
-nnoremap gst :Gstatus<CR>
-nnoremap gca :Gcommit<CR>
-
 "Ctags settings
 set tags=./tags;
 
 "Functions
-
 "For use when tidying long variable declarations at the top of functions
 function! SortLinesDescending() range
     execute a:firstline . "," . a:lastline . 's/^\(.*\)$/\=strdisplaywidth( submatch(0) ) . " " . submatch(0)/'
