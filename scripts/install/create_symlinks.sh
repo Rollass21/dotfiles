@@ -46,7 +46,7 @@ echo
 echo "Linking new"
 echo "-----------"
 ln -sf $DOTFILES_DIR/.bash_profile ~/.bash_profile && echo "Linking ~/.bash_profile"
-if [ ! -d "~/bin" ]; then mkdir -p $(dir $@); fi
+if [ ! -d "~/bin" ]; then mkdir -p ~/bin; fi
 ln -sf $DOTFILES_DIR/scripts ~/bin/scripts && echo "Linking ~/bin/scripts"
 ln -sf $DOTFILES_DIR/.vim ~/.vim && echo "Linking ~/.vim"
 ln -sf $DOTFILES_DIR/.vim/vimrc ~/.vimrc && echo "Linking ~/.vimrc"
