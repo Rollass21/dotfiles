@@ -77,7 +77,7 @@ shopt -s cmdhist
 #PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # with time HH:MM
-PS1='[\A]\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ' 
+PS1='[\A]\[\033[01;35m\]\u@\h\[\033[00m\]:\w\$ ' 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 ## color variables, tags
