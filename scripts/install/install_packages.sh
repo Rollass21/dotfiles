@@ -18,6 +18,7 @@ packages=(
           blueman
           bluez-utils
           ctags
+          xfce4-terminal
           curl
           dmenu
           feh
