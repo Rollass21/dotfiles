@@ -49,7 +49,7 @@ alias cpdir="cp -r"
 bashrcpath=$(get_path)
 alias aliases='cat $bashrcpath | grep alias | cut -c 7-'
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/bin/SASM:$HOME/bin/scripts:$HOME/bin/SASM:$PATH
 
 PREFS="~/.bash_profile ~/.vimrc ~/.gitignore_global ~/.git_message ~/.gitconfig" 
 alias pushprefs="cp -v $PREFS -t ~/dotfiles"
