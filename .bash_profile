@@ -74,11 +74,18 @@ shopt -s cdspell
 # multiline commands as one entry in history
 shopt -s cmdhist
 
+gb() {
+            echo -n '(' && git branch 2>/dev/null | grep '^*' | colrm 1 2 | tr -d '\n' && echo  -n ')'
+}
+git_branch() {
+            gb | sed 's/()//'
+}
+
 # without time HH:MM
 #PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # with time HH:MM
-PS1='[\A]\[\033[01;35m\]\u@\h\[\033[00m\]:\w\$ ' 
+PS1='[\A]\[\033[01;35m\]\u@\h\[\033[00m\]:$(git_branch)\w\$ ' 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 ## color variables, tags
