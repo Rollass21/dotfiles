@@ -13,6 +13,9 @@ call vundle#begin('~/.vim/bundle')
     Plugin 'plantuml-syntax'
     Plugin 'majutsushi/tagbar'
     Plugin 'yggdroot/indentline'
+    Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'tpope/vim-eunuch'
+    Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 call vundle#end() 
 
 "FONTS AND COLORS
@@ -47,6 +50,8 @@ set noerrorbells
 set mouse=a
 set autoindent
 set smartindent
+set ic
+set smartcase
 set cindent
 set cinoptions=(0,:0,l1,t0,L3)
 set tabstop=4
