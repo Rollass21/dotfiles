@@ -1,0 +1,4 @@
+#!/bin/sh
+pactl list sources | grep -qi "Mute: yes" && echo "MUTED" || echo "ON" 
+
+exit 0
