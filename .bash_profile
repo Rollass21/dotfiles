@@ -37,6 +37,7 @@ alias grep="grep --color"
 alias vim='nvim'
 alias vi="nvim"
 alias v="nvim"
+alias jlab="jupyter-lab"
 alias editvim="$EDITOR ~/.vimrc"
 alias editbash="$EDITOR ~/.bash_profile"
 alias editgit="$EDITOR ~/.gitconfig"
