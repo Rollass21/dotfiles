@@ -51,11 +51,6 @@ bashrcpath=$(get_path)
 alias aliases='cat $bashrcpath | grep alias | cut -c 7-'
 
 export PATH=$HOME/bin:$HOME/bin/SASM:$HOME/bin/scripts:$HOME/bin/SASM:$PATH
-
-PREFS="~/.bash_profile ~/.vimrc ~/.gitignore_global ~/.git_message ~/.gitconfig" 
-alias pushprefs="cp -v $PREFS -t ~/dotfiles"
-
-alias update="sudo dnf update -y"
 # CLI settings
 #-----------------
 
@@ -69,7 +64,7 @@ fi
 # glob ** is now recursive *
 shopt -s globstar
 # automatically cd into folder by just typing its path
-shopt -s autocd
+#shopt -s autocd
 # fix spelling errors for cd, only in interactive shell
 shopt -s cdspell
 # multiline commands as one entry in history
@@ -89,13 +84,6 @@ git_branch() {
 PS1='[\A]\[\033[01;35m\]\u@\h\[\033[00m\]:$(git_branch)\w\$ ' 
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-## color variables, tags
-Color_Off="\033[0m"
-
-Green="\033[0;32m"
-
-DONE="$Green DONE $Color_off"
-
 # man pages colors
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -105,9 +93,5 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-# Do not edit below this line, capiché
-#tmux attach
-#tmux
-
-#except cowsay ofc
+# for the memes
 fortune | cowsay
