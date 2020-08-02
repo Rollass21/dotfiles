@@ -9,13 +9,12 @@ call vundle#begin('~/.vim/bundle')
     Plugin 'scrooloose/syntastic'
     Plugin 'scrooloose/nerdtree'
     Plugin 'airblade/vim-gitgutter'
-    Plugin 'Valloric/YouCompleteMe'
     Plugin 'plantuml-syntax'
     Plugin 'majutsushi/tagbar'
     Plugin 'yggdroot/indentline'
     Plugin 'editorconfig/editorconfig-vim'
     Plugin 'tpope/vim-eunuch'
-    Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+    Plugin 'valloric/youcompleteme'
 call vundle#end() 
 
 "FONTS AND COLORS
